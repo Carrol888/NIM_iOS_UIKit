@@ -47,10 +47,17 @@
                   selectedImage:[UIImage nim_imageInKit:@"bk_media_shoot_pressed"]
                           title:@"拍摄"],
              
-             [NIMMediaItem item:@"onTapMediaItemLocation:"
-                    normalImage:[UIImage nim_imageInKit:@"bk_media_position_normal"]
-                  selectedImage:[UIImage nim_imageInKit:@"bk_media_position_pressed"]
-                          title:@"位置"],
+             
+    
+             [NIMMediaItem item:@"onTapMediaItemFileTrans:"
+                                     normalImage:[UIImage imageNamed:@"icon_file_trans_normal"]
+                                   selectedImage:[UIImage imageNamed:@"icon_file_trans_pressed"]
+                                           title:@"文件传输"],
+    
+             [NIMMediaItem item:@"onTapMediaItemTeamMeeting:"
+                                        normalImage:[UIImage imageNamed:@"btn_media_telphone_message_normal"]
+                                      selectedImage:[UIImage imageNamed:@"btn_media_telphone_message_pressed"]
+                                              title:@"视频通话"]
              ];
 }
 
