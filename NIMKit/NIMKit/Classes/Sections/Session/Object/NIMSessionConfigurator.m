@@ -60,7 +60,7 @@
     id<NIMSessionConfig> sessionConfig = vc.sessionConfig;
     UITableView *tableView  = vc.tableView;
     NIMInputView *inputView = vc.sessionInputView;
-    
+    NSLog(@"configure >> ");
     NIMSessionDataSourceImpl *datasource = [[NIMSessionDataSourceImpl alloc] initWithSession:session config:sessionConfig];
     NIMSessionLayoutImpl *layout         = [[NIMSessionLayoutImpl alloc] initWithSession:session config:sessionConfig];
     layout.tableView = tableView;

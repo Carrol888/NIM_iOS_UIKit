@@ -38,25 +38,25 @@
 - (NSArray *)defaultMediaItems
 {
     return @[[NIMMediaItem item:@"onTapMediaItemPicture:"
-                    normalImage:[UIImage nim_imageInKit:@"bk_media_picture_normal"]
-                  selectedImage:[UIImage nim_imageInKit:@"bk_media_picture_nomal_pressed"]
+                    normalImage:[UIImage nim_imageInKit:@"xiangce"]
+                  selectedImage:[UIImage nim_imageInKit:@"xiangce"]
                           title:@"相册"],
              
              [NIMMediaItem item:@"onTapMediaItemShoot:"
-                    normalImage:[UIImage nim_imageInKit:@"bk_media_shoot_normal"]
-                  selectedImage:[UIImage nim_imageInKit:@"bk_media_shoot_pressed"]
+                    normalImage:[UIImage nim_imageInKit:@"paishe"]
+                  selectedImage:[UIImage nim_imageInKit:@"paishe"]
                           title:@"拍摄"],
              
              
     
              [NIMMediaItem item:@"onTapMediaItemFileTrans:"
-                                     normalImage:[UIImage imageNamed:@"icon_file_trans_normal"]
-                                   selectedImage:[UIImage imageNamed:@"icon_file_trans_pressed"]
+                                     normalImage:[UIImage nim_imageInKit:@"wenjian"]
+                                   selectedImage:[UIImage imageNamed:@"wenjian"]
                                            title:@"文件传输"],
     
-             [NIMMediaItem item:@"onTapMediaItemTeamMeeting:"
-                                        normalImage:[UIImage imageNamed:@"btn_media_telphone_message_normal"]
-                                      selectedImage:[UIImage imageNamed:@"btn_media_telphone_message_pressed"]
+             [NIMMediaItem item:@"onTapMediaItemVideoChat:"
+                                        normalImage:[UIImage nim_imageInKit:@"shipin"]
+                                      selectedImage:[UIImage imageNamed:@"shipin"]
                                               title:@"视频通话"]
              ];
 }

@@ -20,6 +20,7 @@
 
 - (void)didPullUpMessageData;
 
+- (NIMMessageModel *)didSendReminderMessage;
 
 @end
 

@@ -174,6 +174,8 @@
 }
 
 
+
+
 #pragma mark - Touch Event
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -692,6 +694,7 @@
 - (void)uiInsertMessages:(NSArray *)messages
 {
     [self.interactor insertMessages:messages];
+    
 }
 
 - (NIMMessageModel *)uiDeleteMessage:(NIMMessage *)message{

@@ -309,6 +309,7 @@
     [self.items insertObject:model atIndex:0];
     if (![self.dataProvider respondsToSelector:@selector(needTimetag)] || self.dataProvider.needTimetag) {
         //这种情况下必须要插入时间戳
+        
         NIMTimestampModel *timeModel = [[NIMTimestampModel alloc] init];
         timeModel.messageTime = model.messageTime;
         [self.items insertObject:timeModel atIndex:0];
