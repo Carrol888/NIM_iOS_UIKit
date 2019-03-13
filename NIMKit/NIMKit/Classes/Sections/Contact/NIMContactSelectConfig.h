@@ -70,6 +70,8 @@ typedef void(^NIMContactDataProviderHandler)(NSDictionary *contentDic, NSArray *
  */
 - (NIMKitInfo *)getInfoById:(NSString *)selectedId;
 
+- (NSArray *)searchWithKeyWords:(NSString *)keyWords;
+
 @end
 
 /**
