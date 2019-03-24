@@ -694,7 +694,6 @@
 - (void)uiInsertMessages:(NSArray *)messages
 {
     [self.interactor insertMessages:messages];
-    
 }
 
 - (NIMMessageModel *)uiDeleteMessage:(NIMMessage *)message{

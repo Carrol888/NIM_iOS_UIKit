@@ -43,7 +43,7 @@
         [_emoticonBtn sizeToFit];
         
         _moreMediaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_normal"] forState:UIControlStateNormal];
+        [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_pressed"] forState:UIControlStateNormal];
         [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_pressed"] forState:UIControlStateHighlighted];
         [_moreMediaBtn sizeToFit];
         

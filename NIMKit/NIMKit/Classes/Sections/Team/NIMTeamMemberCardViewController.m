@@ -82,14 +82,14 @@
                                       ExtraInfo     : @{@"user":self.usrInfo,@"team":self.member.team},
                                       SepLeftEdge   : @(SepLineLeft),
                                   },
-                                  @{
-                                      Title         : @"群昵称",
-                                      DetailTitle   : member.nickname.length? member.nickname : @"未设置",
-                                      CellAction    : ([self isSelf] || [self canUpdateTeamMember])? @"updateTeamNick" : @"",
-                                      ShowAccessory : ([self isSelf] || [self canUpdateTeamMember])? @(YES) : @(NO),
-                                      RowHeight     : @(50),
-                                      SepLeftEdge   : @(SepLineLeft),
-                                      },
+//                                  @{
+//                                      Title         : @"群昵称",
+//                                      DetailTitle   : member.nickname.length? member.nickname : @"未设置",
+//                                      CellAction    : ([self isSelf] || [self canUpdateTeamMember])? @"updateTeamNick" : @"",
+//                                      ShowAccessory : ([self isSelf] || [self canUpdateTeamMember])? @(YES) : @(NO),
+//                                      RowHeight     : @(50),
+//                                      SepLeftEdge   : @(SepLineLeft),
+//                                      },
                                   @{
                                       Title         : @"身份",
                                       DetailTitle   : [self memberTypeString:self.member.type],
@@ -211,17 +211,18 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (alertView == _kickAlertView) {
         if(alertView.cancelButtonIndex != buttonIndex) {
-            [[NIMSDK sharedSDK].teamManager kickUsers:@[self.member.memberId] fromTeam:self.member.team.teamId completion:^(NSError *error) {
-                if(!error) {
-                    [self.view makeToast:@"踢人成功"];
-                    [self.navigationController popViewControllerAnimated:YES];
-                    if([_delegate respondsToSelector:@selector(onTeamMemberKicked:)]) {
-                        [_delegate onTeamMemberKicked:self.member];
-                    }
-                } else {
-                    [self.view makeToast:@"踢人失败"];
-                }
-            }];
+//            [[NIMSDK sharedSDK].teamManager kickUsers:@[self.member.memberId] fromTeam:self.member.team.teamId completion:^(NSError *error) {
+//                if(!error) {
+//                    [self.view makeToast:@"踢人成功"];
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                    if([_delegate respondsToSelector:@selector(onTeamMemberKicked:)]) {
+//                        [_delegate onTeamMemberKicked:self.member];
+//                    }
+//                } else {
+//                    [self.view makeToast:@"踢人失败"];
+//                }
+//            }];
+            
         }
     }
     if (alertView == _updateNickAlertView) {

@@ -371,16 +371,16 @@
     if (_exConfig && _exConfig[kNIMAdvancedTeamCardConfigTopKey]) {
         isTop = [_exConfig[kNIMAdvancedTeamCardConfigTopKey] boolValue];
     }
-    NIMTeamCardRowItem *itemTop = [[NIMTeamCardRowItem alloc] init];
-    itemTop.title            = @"聊天置顶";
-    itemTop.switchOn         = isTop;
-    itemTop.rowHeight        = 50.f;
-    itemTop.type             = TeamCardRowItemTypeSwitch;
+//    NIMTeamCardRowItem *itemTop = [[NIMTeamCardRowItem alloc] init];
+//    itemTop.title            = @"聊天置顶";
+//    itemTop.switchOn         = isTop;
+//    itemTop.rowHeight        = 50.f;
+//    itemTop.type             = TeamCardRowItemTypeSwitch;
     
     if (isOwner) {
         self.bodyData = @[
                   @[teamMember],
-                  @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify, itemTop],
+                  @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify],
                   @[itemAuth],
                   @[itemInvite,itemUpdateInfo,itemBeInvite],
                   @[itemDismiss],
@@ -388,7 +388,7 @@
     }else if(isManager){
         self.bodyData = @[
                  @[teamMember],
-                 @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify, itemTop],
+                 @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify],
                  @[itemAuth],
                  @[itemInvite,itemUpdateInfo,itemBeInvite],
                  @[itemQuit],
@@ -396,7 +396,7 @@
     }else{
         self.bodyData = @[
                           @[teamMember],
-                          @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify, itemTop],
+                          @[teamName,teamNick,teamIntro,teamAnnouncement,teamNotify],
                           @[itemQuit],
                           ];
     }

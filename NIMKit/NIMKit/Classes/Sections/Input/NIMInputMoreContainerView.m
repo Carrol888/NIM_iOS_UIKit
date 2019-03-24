@@ -85,7 +85,7 @@ NSInteger NIMButtonBegintLeftX = 11;
         [btn.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [mediaButtons addObject:btn];
-        
+
     }];
     _mediaButtons = mediaButtons;
     _mediaItems = mediaItems;

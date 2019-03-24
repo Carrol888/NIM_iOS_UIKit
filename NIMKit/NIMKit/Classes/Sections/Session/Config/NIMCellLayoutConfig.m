@@ -111,6 +111,7 @@
 
 - (BOOL)disableRetryButton:(NIMMessageModel *)model
 {
+    
     if (!model.message.isReceivedMsg)
     {
         return model.message.deliveryState != NIMMessageDeliveryStateFailed;
