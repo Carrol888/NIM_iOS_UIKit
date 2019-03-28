@@ -56,6 +56,7 @@ NSString *const NIMTextMessageLabelLinkData = @"NIMTextMessageLabelLinkData";
 }
 
 
+
 #pragma mark - M80AttributedLabelDelegate
 - (void)m80AttributedLabel:(M80AttributedLabel *)label
              clickedOnLink:(id)linkData{

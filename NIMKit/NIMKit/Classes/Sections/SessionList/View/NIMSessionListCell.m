@@ -76,7 +76,7 @@
     if (team) {
         // 这是群
         NSDictionary *dict = [self convertJson:team.serverCustomInfo];
-        NSString *projName = dict[@"projName"];
+        NSString *projName = dict[@"projInfo"][@"projName"];
         if (projName) {
             self.isProject = YES;
             self.projectLabel.text = projName;
