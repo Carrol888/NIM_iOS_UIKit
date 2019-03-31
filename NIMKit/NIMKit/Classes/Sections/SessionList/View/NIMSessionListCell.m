@@ -85,13 +85,14 @@
             self.projectLabel.hidden = NO;
             self.projectLabel.text = @"";
         }
-       
         
     } else {
         self.isProject = NO;
         self.projectLabel.hidden = YES;
         self.projectLabel.text = @"";
     }
+    
+   
     
     self.nameLabel.nim_width = self.nameLabel.nim_width > NameLabelMaxWidth ? NameLabelMaxWidth : self.nameLabel.nim_width;
     self.messageLabel.nim_width = self.messageLabel.nim_width > MessageLabelMaxWidth ? MessageLabelMaxWidth : self.messageLabel.nim_width;

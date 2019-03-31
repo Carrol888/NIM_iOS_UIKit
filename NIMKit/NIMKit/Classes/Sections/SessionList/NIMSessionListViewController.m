@@ -117,6 +117,8 @@
     cell.timeLabel.text = [self timestampDescriptionForRecentSession:recent];
     [cell.timeLabel sizeToFit];
     
+   
+    
     [cell refresh:recent];
     return cell;
 }

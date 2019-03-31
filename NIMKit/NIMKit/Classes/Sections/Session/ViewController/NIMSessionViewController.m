@@ -636,8 +636,11 @@
     [items addObject:[[UIMenuItem alloc] initWithTitle:@"删除"
                                                 action:@selector(deleteMsg:)]];
     
-    
     return items;
+    
+}
+
+- (void)favouriteMsg:(id)sender {
     
 }
 
