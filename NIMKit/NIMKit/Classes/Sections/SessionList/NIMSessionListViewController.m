@@ -215,8 +215,29 @@
         return [NIMKitUtil showNick:recent.session.sessionId inSession:recent.session];
     }else{
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
+        
+        NSDictionary *dict = [self convertJson:team.serverCustomInfo];
+        NSString *projName = dict[@"projInfo"][@"projName"];
+        if (projName) {
+            
+            NSString *partyA = dict[@"partyAUser"][@"userId"];
+            NSString *currentUserID = [[NIMSDK sharedSDK].loginManager currentAccount];
+            
+            NSString *teamName = dict[@"partyAUser"][@"userName"];
+            if ([partyA isEqualToString:currentUserID]) {
+                teamName = dict[@"partyBUser"][@"userName"];
+            }
+            return teamName;
+        }
+        
         return team.teamName;
     }
+}
+
+- (NSDictionary *)convertJson:(NSString *)jsonString {
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    return dic;
 }
 
 - (NSAttributedString *)contentForRecentSession:(NIMRecentSession *)recent{
