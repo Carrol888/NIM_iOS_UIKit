@@ -52,12 +52,12 @@
              [NIMMediaItem item:@"onTapMediaItemFileTrans:"
                                      normalImage:[UIImage nim_imageInKit:@"wenjian"]
                                    selectedImage:[UIImage imageNamed:@"wenjian"]
-                                           title:@"文件传输"],
+                                           title:@"文件传输"]
     
-             [NIMMediaItem item:@"onTapMediaItemVideoChat:"
-                                        normalImage:[UIImage nim_imageInKit:@"shipin"]
-                                      selectedImage:[UIImage imageNamed:@"shipin"]
-                                              title:@"视频通话"]
+//             [NIMMediaItem item:@"onTapMediaItemVideoChat:"
+//                                        normalImage:[UIImage nim_imageInKit:@"shipin"]
+//                                      selectedImage:[UIImage imageNamed:@"shipin"]
+//                                              title:@"视频通话"]
              ];
 }
 
