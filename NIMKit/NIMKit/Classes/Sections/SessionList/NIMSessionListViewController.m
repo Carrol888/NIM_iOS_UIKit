@@ -154,14 +154,21 @@
               totalUnreadCount:(NSInteger)totalUnreadCount
 {
     //清理本地数据
-    NSInteger index = [self.recentSessions indexOfObject:recentSession];
+    NSInteger index;
+    for (int i=0; i<self.recentSessions.count; i++) {
+        NIMRecentSession *rec = self.recentSessions[i];
+        if ([rec.session.sessionId isEqualToString:recentSession.session.sessionId]) {
+            index = i;
+        }
+    }
+//    NSInteger index = [self.recentSessions indexOfObject:recentSession];
     [self.recentSessions removeObjectAtIndex:index];
     
     //如果删除本地会话后就不允许漫游当前会话，则需要进行一次删除服务器会话的操作
     if (self.autoRemoveRemoteSession)
     {
         [[NIMSDK sharedSDK].conversationManager deleteRemoteSessions:@[recentSession.session]
-                           completion:nil];
+                                                          completion:nil];
     }
     _recentSessions = [self customSortRecents:_recentSessions];
     [self refresh];
@@ -216,6 +223,9 @@
     }else{
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
         
+        if (!team) {
+           return @"三点一刻群组";
+        }
         NSDictionary *dict = [self convertJson:team.serverCustomInfo];
         NSString *projName = dict[@"projInfo"][@"projName"];
         if (projName) {
