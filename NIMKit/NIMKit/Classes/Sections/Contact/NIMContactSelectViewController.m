@@ -73,7 +73,9 @@
 - (void)setUpNav
 {
     self.navigationItem.title = [self.config respondsToSelector:@selector(title)] ? [self.config title] : @"选择联系人";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelBtnClick:)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelBtnClick:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelBtnClick:)];
+
     if ([self.config respondsToSelector:@selector(showSelectDetail)] && self.config.showSelectDetail) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:label];
