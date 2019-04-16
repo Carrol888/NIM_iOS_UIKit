@@ -161,6 +161,11 @@
             index = i;
         }
     }
+    
+    if (index > self.recentSessions.count || index < 0) {
+        return;
+    }
+    
 //    NSInteger index = [self.recentSessions indexOfObject:recentSession];
     [self.recentSessions removeObjectAtIndex:index];
     
