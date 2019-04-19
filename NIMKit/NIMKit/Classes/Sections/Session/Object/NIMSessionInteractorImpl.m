@@ -67,8 +67,10 @@ dispatch_queue_t NTESMessageDataPrepareQueue()
 {
     if (self.dataSource.items.count == 0) {
         // maybe the first time to chat,insert a reminder message.
-       NIMMessageModel *md = [self.delegate didSendReminderMessage];
-        [self.dataSource insertMessageModels:@[md]];
+        NIMMessageModel *md = [self.delegate didSendReminderMessage];
+        if (md) {
+            [self.dataSource insertMessageModels:@[md]];
+        }
         [self.layout reloadTable];
     }
     return [self.dataSource items];
