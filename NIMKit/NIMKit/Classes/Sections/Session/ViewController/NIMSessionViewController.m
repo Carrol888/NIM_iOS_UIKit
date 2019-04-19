@@ -147,6 +147,7 @@
 {
     [super viewDidDisappear:animated];
     [self.interactor onViewDidDisappear];
+//    [self.interactor ui]
 }
 
 
