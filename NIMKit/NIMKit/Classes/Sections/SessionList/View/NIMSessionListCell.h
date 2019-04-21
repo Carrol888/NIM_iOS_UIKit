@@ -14,7 +14,7 @@
 @interface NIMSessionListCell : UITableViewCell
 
 @property (nonatomic,strong) NIMAvatarImageView *avatarImageView;
-
+@property (nonatomic,strong) UIImageView *duiBiaoImageView;
 @property (nonatomic,strong) UILabel *nameLabel;
 
 @property (nonatomic,strong) UILabel *messageLabel;
