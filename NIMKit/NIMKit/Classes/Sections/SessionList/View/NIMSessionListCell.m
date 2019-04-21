@@ -84,30 +84,38 @@
         NSString *projName = dict[@"projInfo"][@"projName"];
         NSString * groupType = dict[@"groupType"];//1:普通群  2: 项目群  3: 战队群
         if (groupType.integerValue ==1) {
+            self.projectLabel.hidden = NO;
+            self.projectLabel.text = @"";
             _duiBiaoImageView.hidden = YES;
             self.contentView.backgroundColor = [UIColor whiteColor];
         }else if (groupType.integerValue ==2) {
+            self.isProject = YES;
+            self.projectLabel.text = projName;
+            self.projectLabel.hidden = NO;
             _duiBiaoImageView.hidden = YES;
             self.contentView.backgroundColor = [[UIColor colorWithHexString:@"#1AB843"] colorWithAlphaComponent:0.06];
         }else{
+            self.projectLabel.hidden = NO;
+            self.projectLabel.text = @"";
             _duiBiaoImageView.hidden = NO;
             self.contentView.backgroundColor = [UIColor whiteColor];
         }
         
-        if (projName) {
-           
-            self.isProject = YES;
-            self.projectLabel.text = projName;
-            self.projectLabel.hidden = NO;
-        } else {
-            self.projectLabel.hidden = NO;
-            self.projectLabel.text = @"";
-        }
+//        if (projName) {
+//           
+//            self.isProject = YES;
+//            self.projectLabel.text = projName;
+//            self.projectLabel.hidden = NO;
+//        } else {
+//            self.projectLabel.hidden = NO;
+//            self.projectLabel.text = @"";
+//        }
         
     } else {
         self.isProject = NO;
         self.projectLabel.hidden = YES;
         self.projectLabel.text = @"";
+        _duiBiaoImageView.hidden = YES;
     }
     
    
