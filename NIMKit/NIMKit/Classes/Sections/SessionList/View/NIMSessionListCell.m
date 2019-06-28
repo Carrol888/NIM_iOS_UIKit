@@ -29,6 +29,10 @@
     if (self) {
         _avatarImageView = [[NIMAvatarImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         [self addSubview:_avatarImageView];
+        _duiBiaoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_avatarImageView.frame)+5, 10, 26, 26)];
+        _duiBiaoImageView.image = [UIImage imageNamed:@"App_zhanQian"];
+        _duiBiaoImageView.hidden = YES;
+        [self addSubview:_duiBiaoImageView];
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _nameLabel.backgroundColor = [UIColor clearColor];
@@ -65,11 +69,11 @@
 - (void)refresh:(NIMRecentSession*)recent{
     self.recent = recent;
     
-    if (recent.session.sessionType != NIMSessionTypeP2P) {
-        self.contentView.backgroundColor = [[UIColor colorWithHexString:@"#1AB843"] colorWithAlphaComponent:0.06];
-    } else {
+//    if (recent.session.sessionType != NIMSessionTypeP2P) {
+//        self.contentView.backgroundColor = [[UIColor colorWithHexString:@"#1AB843"] colorWithAlphaComponent:0.06];
+//    } else {
         self.contentView.backgroundColor = [UIColor whiteColor];
-    }
+//    }
     
     NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
     
@@ -78,21 +82,40 @@
         NSDictionary *dict = [self convertJson:team.serverCustomInfo];
         NSLog(@"proj dict >> %@\n",dict);
         NSString *projName = dict[@"projInfo"][@"projName"];
-        
-        if (projName) {
-           
+        NSString * groupType = dict[@"groupType"];//1:普通群  2: 项目群  3: 战队群
+        if (groupType.integerValue ==1) {
+            self.projectLabel.hidden = NO;
+            self.projectLabel.text = @"";
+            _duiBiaoImageView.hidden = YES;
+            self.contentView.backgroundColor = [UIColor whiteColor];
+        }else if (groupType.integerValue ==2) {
             self.isProject = YES;
             self.projectLabel.text = projName;
             self.projectLabel.hidden = NO;
-        } else {
+            _duiBiaoImageView.hidden = YES;
+            self.contentView.backgroundColor = [[UIColor colorWithHexString:@"#1AB843"] colorWithAlphaComponent:0.06];
+        }else{
             self.projectLabel.hidden = NO;
             self.projectLabel.text = @"";
+            _duiBiaoImageView.hidden = NO;
+            self.contentView.backgroundColor = [UIColor whiteColor];
         }
+        
+//        if (projName) {
+//           
+//            self.isProject = YES;
+//            self.projectLabel.text = projName;
+//            self.projectLabel.hidden = NO;
+//        } else {
+//            self.projectLabel.hidden = NO;
+//            self.projectLabel.text = @"";
+//        }
         
     } else {
         self.isProject = NO;
         self.projectLabel.hidden = YES;
         self.projectLabel.text = @"";
+        _duiBiaoImageView.hidden = YES;
     }
     
    
