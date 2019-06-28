@@ -197,7 +197,7 @@
 - (void)didRefreshMessageData
 {
     [self refreshSessionTitle:self.sessionTitle];
-    [self refreshSessionSubTitle:self.sessionSubTitle];
+//    [self refreshSessionSubTitle:self.sessionSubTitle];
     [self.tableView reloadData];
 }
 
@@ -275,6 +275,17 @@
 //接收消息
 - (void)onRecvMessages:(NSArray *)messages
 {
+    NSLog(@"消息过滤");
+    NIMMessage *msg = messages.lastObject;
+    if (msg.messageType == NIMMessageTypeTip) {
+        NSData *jsonData = [msg.text dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        NSString *type = dic[@"type"];
+        if (type && [type integerValue] == 1) {
+            return;
+        }
+    }
+    
     if ([self shouldAddListenerForNewMsg])
     {
         NIMMessage *message = messages.firstObject;

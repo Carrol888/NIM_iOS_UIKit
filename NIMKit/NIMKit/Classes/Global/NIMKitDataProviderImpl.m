@@ -224,6 +224,7 @@
         info.avatarUrlString = userInfo.thumbAvatarUrl;
         info.avatarImage = self.defaultUserAvatar;
     }
+
     return info;
 }
 

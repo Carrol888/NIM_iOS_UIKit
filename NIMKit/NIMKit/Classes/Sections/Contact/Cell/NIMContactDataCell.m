@@ -46,6 +46,7 @@
     [self refreshTitle:member.showName];
     self.memberId = [member memberId];
     NIMKitInfo *info = [[NIMKit sharedKit] infoByUser:self.memberId option:nil];
+    
     [self refreshAvatar:info];
 }
 

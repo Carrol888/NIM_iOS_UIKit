@@ -90,8 +90,6 @@
     return YES;
 }
 
-
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -116,8 +114,6 @@
     [cell.messageLabel sizeToFit];
     cell.timeLabel.text = [self timestampDescriptionForRecentSession:recent];
     [cell.timeLabel sizeToFit];
-    
-   
     
     [cell refresh:recent];
     return cell;
@@ -228,9 +224,10 @@
     }else{
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
         
-        if (!team) {
+        if (!team  || team.serverCustomInfo == nil) {
            return @"三点一刻群组";
         }
+        
         NSDictionary *dict = [self convertJson:team.serverCustomInfo];
         NSString *projName = dict[@"projInfo"][@"projName"];
         if (projName) {

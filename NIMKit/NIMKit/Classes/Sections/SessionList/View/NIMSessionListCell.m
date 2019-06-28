@@ -73,7 +73,7 @@
     
     NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
     
-    if (team) {
+    if (team && team.serverCustomInfo != nil) {
         // 这是群
         NSDictionary *dict = [self convertJson:team.serverCustomInfo];
         NSLog(@"proj dict >> %@\n",dict);
