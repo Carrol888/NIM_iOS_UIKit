@@ -195,6 +195,13 @@
     
     [self refreshStatus:NIMInputStatusText];
     [self sizeToFit];
+    
+}
+
+- (void)showDraft:(NSString *)draft {
+//    [self.toolBar setContentText:draft];
+    self.toolBar.contentText = draft;
+    [self refreshStatus:NIMInputStatusText];
 }
 
 - (void)checkMoreContainer

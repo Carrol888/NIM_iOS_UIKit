@@ -72,7 +72,9 @@
     [self markRead];
     //更新已读位置
     [self uiCheckReceipts:nil];
+    
 }
+
 
 - (void)setupNav
 {
@@ -134,6 +136,10 @@
 {
     [super viewWillAppear:animated];
     [self.interactor onViewWillAppear];
+}
+
+- (void)showDraft:(NSString *)draft {
+    [self.sessionInputView showDraft:draft];
 }
 
 
@@ -277,6 +283,7 @@
 {
     NSLog(@"消息过滤");
     NIMMessage *msg = messages.lastObject;
+    NSLog(@"msg %@",msg);
     if (msg.messageType == NIMMessageTypeTip) {
         NSData *jsonData = [msg.text dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];

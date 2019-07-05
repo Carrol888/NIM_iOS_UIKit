@@ -175,4 +175,6 @@
  */
 - (void)uiUpdateMessage:(NIMMessage *)message;
 
+- (void)showDraft:(NSString *)draft;
+
 @end
